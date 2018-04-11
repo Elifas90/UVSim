@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UVSim.Accumilator">
+    <Position X="7.75" Y="3.75" Width="1.5" />
+    <AssociationLine Name="Instance" Type="UVSim.Accumilator">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.046" Y="0.352" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAgAAAAAAA=</HashCode>
+      <FileName>Accumilator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Instance" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="UVSim.ALU">
+    <Position X="7.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKAAIAAAQAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ALU.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UVSim.Assembler">
+    <Position X="12" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAggAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAIAABA=</HashCode>
+      <FileName>Assembler.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="memory" />
+      <Field Name="window" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="UVSim.AssemblerException">
+    <Position X="9.5" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>AssemblerException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UVSim.BasicML">
+    <Position X="4.25" Y="1" Width="1.5" />
+    <AssociationLine Name="memory" Type="UVSim.MemoryManager">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.589" Y="0.122" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="window" Type="UVSim.IUVSimController">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.1" Y="-0.294" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAKAgJAAAQAAAAAAAAADAAAgAAAAAAgIAAAAAQOAAgA=</HashCode>
+      <FileName>BasicML.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="alu" />
+      <Field Name="memory" />
+      <Field Name="window" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="UVSim.BasicMLDirect">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKAgJAAAQAAAAAAAAADAAAgAAAAAAgAAAAAAQEAAgA=</HashCode>
+      <FileName>BasicMLDirect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UVSim.BasicMLIndirect">
+    <Position X="6" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKAgJAAAQAAAAAAAAADAAAgAAAAAAgAAAAAAQEAAgA=</HashCode>
+      <FileName>BasicMLIndirect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UVSim.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="7.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ABCBAEAAAAAAAAEAAAAgAQAAAAAAACCAAAAgAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="controller" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UVSim.MemoryManager">
+    <Position X="12" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAIAAAACAQAAAAAAAAAACAAAAAAIAIAAAA=</HashCode>
+      <FileName>MemoryManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UVSim.UVSimController" BaseTypeListCollapsed="true">
+    <Position X="8" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACCAAAAAAAAAAAAAIAEAAQAAEAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>UVSimController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UVSim.VirtualMachine">
+    <Position X="9.5" Y="3.75" Width="1.5" />
+    <AssociationLine Name="memory" Type="UVSim.MemoryManager">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.225" Y="-0.253" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAIAAAQAAAAAAAAAAAAAAAAIAAQAAAIAAAA=</HashCode>
+      <FileName>VirtualMachine.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="memory" />
+      <Field Name="window" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="UVSim.IUVSimController">
+    <Position X="6" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAIAAAAQAAEAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>IUVSimController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

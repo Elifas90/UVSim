@@ -1,0 +1,19 @@
++1097;	Read A from keyboard to location 97.
++1098;	Read B from keyboard to location 98.
++1099;	Read C from keyboard to location 99.
++2097;	Load A into the accumilator.
++3198;	Accumilator = A - B.
++4111;	If B > A, branch to location 11.
++2097;	If A >= B, load A into the accumilator.
++3199;	Accumilator = A - C.
++4116;	If C > A, branch to location 16.
++1197;	If A >= C, output A as the largest.
++4300;	HALT.
++2098;	Load B into the accumilator.
++3199;	Accumilator B - C.
++4116;	If C > B, branch to location 16.
++1198;	If B >= C, output B as the largest.
++4300;	HALT.
++1199;	Output C as the largest.
++4300;	HALT.
+-9999;	STOP_CODE.
