@@ -66,8 +66,11 @@
     <Compile Include="ALU.cs" />
     <Compile Include="AssemblerException.cs" />
     <Compile Include="BasicML.cs" />
+    <Compile Include="BasicMLMath.cs" />
     <Compile Include="BasicMLDirect.cs" />
+    <Compile Include="BasicMLMathDirect.cs" />
     <Compile Include="BasicMLIndirect.cs" />
+    <Compile Include="BasicMLMathIndirect.cs" />
     <Compile Include="IUVSimController.cs" />
     <Compile Include="MemoryManager.cs" />
     <Compile Include="UVSimController.cs" />

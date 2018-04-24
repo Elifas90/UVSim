@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace UVSim
 {
+    /// <summary>
+    /// Base class for BasicML functions
+    /// </summary>
     public abstract class BasicML
     {
         protected IUVSimController window;
@@ -28,12 +31,6 @@ namespace UVSim
         public abstract void Write(ref int pc);
         public abstract void Load(ref int pc);
         public abstract void Store(ref int pc);
-        public abstract void Add(ref int pc);
-        public abstract void Subtract(ref int pc);
-        public abstract void Divide(ref int pc);
-        public abstract void Multiply(ref int pc);
-        public abstract void Reminder(ref int pc);
-        public abstract void Exponential(ref int pc);
         public abstract void Branch(ref int pc);
         public abstract void BranchNeg(ref int pc);
         public abstract void BranchZero(ref int pc);

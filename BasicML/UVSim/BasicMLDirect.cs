@@ -11,21 +11,13 @@ using System.Threading.Tasks;
 
 namespace UVSim
 {
+    /// <summary>
+    /// Direct implementations of BasicML Module
+    /// </summary>
     public class BasicMLDirect : BasicML
     {
         public BasicMLDirect(IUVSimController w, MemoryManager m) : base(w, m)
         {
-        }
-
-        public override void Add(ref int pc)
-        {
-            int operand = memory[pc] % 100;
-
-            // Add an integer from a memory location based on the operand to the Accumilator.Instance.Value.
-            Accumilator.Instance.Value = alu.Add(Accumilator.Instance.Value, memory[operand]);
-
-            // Increment the program counter.
-            pc++;
         }
 
         public override void Branch(ref int pc)
@@ -58,45 +50,12 @@ namespace UVSim
             else pc++;
         }
 
-        public override void Divide(ref int pc)
-        {
-            int operand = memory[pc] % 100;
-
-            // Devide Accumilator.Instance.Value by the integer in a memory location based on the operand.
-            Accumilator.Instance.Value = alu.Divide(Accumilator.Instance.Value, memory[operand]);
-
-            // Increment the program counter.
-            pc++;
-        }
-
-        public override void Exponential(ref int pc)
-        {
-            int operand = memory[pc] % 100;
-
-            // Raise the number in the accumilator to the power of the number in memory location specified by the operand.
-            Accumilator.Instance.Value = alu.Exponential(Accumilator.Instance.Value, memory[operand]);
-
-            // Increment the program counter.
-            pc++;
-        }
-
         public override void Load(ref int pc)
         {
             int operand = memory[pc] % 100;
 
             // Read an integer from a memory location based on the operand, and load it in the Accumilator.Instance.Value.
             Accumilator.Instance.Value = memory[operand];
-
-            // Increment the program counter.
-            pc++;
-        }
-
-        public override void Multiply(ref int pc)
-        {
-            int operand = memory[pc] % 100;
-
-            // Multiply the integer in a memory location based on the operand by the integer in the Accumilator.Instance.Value.
-            Accumilator.Instance.Value = alu.Multiply(Accumilator.Instance.Value, memory[operand]);
 
             // Increment the program counter.
             pc++;
@@ -114,34 +73,12 @@ namespace UVSim
             pc++;
         }
 
-        public override void Reminder(ref int pc)
-        {
-            int operand = memory[pc] % 100;
-
-            // Get the reminder of the number in the accumilator devided by a number in memory location specified by the operand.
-            Accumilator.Instance.Value = alu.Reminder(Accumilator.Instance.Value, memory[operand]);
-
-            // Increment the program counter.
-            pc++;
-        }
-
         public override void Store(ref int pc)
         {
             int operand = memory[pc] % 100;
 
             // Read an integer from the Accumilator.Instance.Value, and store it in a memory location based on the operand.
             memory[operand] = Accumilator.Instance.Value;
-
-            // Increment the program counter.
-            pc++;
-        }
-
-        public override void Subtract(ref int pc)
-        {
-            int operand = memory[pc] % 100;
-
-            // Subtract the integer in a memory location based on the operand from the Accumilator.Instance.Value.
-            Accumilator.Instance.Value = alu.Subtract(Accumilator.Instance.Value, memory[operand]);
 
             // Increment the program counter.
             pc++;

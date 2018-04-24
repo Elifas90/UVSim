@@ -29,9 +29,11 @@ namespace UVSim
         {
             int opCode;
 
-            // Create executioner
+            // Create executioners
             BasicML directExecution = new BasicMLDirect(window, memory);
             BasicML indirectExecution = new BasicMLIndirect(window, memory);
+            BasicMLMath directMath = new BasicMLMathDirect(window, memory);
+            BasicMLMath indirectMath = new BasicMLMathIndirect(window, memory);
 
             // A loop to go over the memory until HALT is encountered.
             while (true)
@@ -128,7 +130,7 @@ namespace UVSim
                     // ADD
                     case 30:
 
-                        directExecution.Add(ref pc);
+                        directMath.Add(ref pc);
 
                         break;
 
@@ -138,7 +140,7 @@ namespace UVSim
                     // SUBTRACT
                     case 31:
 
-                        directExecution.Subtract(ref pc);
+                        directMath.Subtract(ref pc);
 
                         break;
 
@@ -148,7 +150,7 @@ namespace UVSim
                     // DIVIDE
                     case 32:
 
-                        directExecution.Divide(ref pc);
+                        directMath.Divide(ref pc);
 
                         break;
 
@@ -158,7 +160,7 @@ namespace UVSim
                     // MULTIPLY
                     case 33:
 
-                        directExecution.Multiply(ref pc);
+                        directMath.Multiply(ref pc);
 
                         break;
 
@@ -168,7 +170,7 @@ namespace UVSim
                     // ADD - INDIRECT
                     case 34:
 
-                        indirectExecution.Add(ref pc);
+                        indirectMath.Add(ref pc);
 
                         break;
 
@@ -178,7 +180,7 @@ namespace UVSim
                     // SUBTRACT - INDIRECT
                     case 35:
 
-                        indirectExecution.Subtract(ref pc);
+                        indirectMath.Subtract(ref pc);
 
                         break;
 
@@ -188,7 +190,7 @@ namespace UVSim
                     // DIVIDE - INDIRECT
                     case 36:
 
-                        indirectExecution.Divide(ref pc);
+                        indirectMath.Divide(ref pc);
 
                         break;
 
@@ -198,7 +200,7 @@ namespace UVSim
                     // MULTIPLY - INDIRECT
                     case 37:
 
-                        indirectExecution.Multiply(ref pc);
+                        indirectMath.Multiply(ref pc);
 
                         break;
 
@@ -278,7 +280,7 @@ namespace UVSim
                     // REMINDER
                     case 50:
 
-                        directExecution.Reminder(ref pc);
+                        directMath.Reminder(ref pc);
 
                         break;
 
@@ -288,7 +290,7 @@ namespace UVSim
                     // EXPONENTIATION
                     case 51:
 
-                        directExecution.Exponential(ref pc);
+                        directMath.Exponential(ref pc);
 
                         break;
 
@@ -298,7 +300,7 @@ namespace UVSim
                     // REMINDER - INDIRECT
                     case 52:
 
-                        indirectExecution.Reminder(ref pc);
+                        indirectMath.Reminder(ref pc);
 
                         break;
 
@@ -308,7 +310,7 @@ namespace UVSim
                     // EXPONENTIATION - INDIRECT
                     case 53:
 
-                        indirectExecution.Exponential(ref pc);
+                        indirectMath.Exponential(ref pc);
 
                         break;
 
