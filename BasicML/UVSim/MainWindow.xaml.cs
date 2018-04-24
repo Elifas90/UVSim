@@ -19,16 +19,25 @@ namespace UVSim
 
         private IUVSimController controller;
 
+        /// <summary>
+        /// Console Control
+        /// </summary>
         public RichEditControl Console
         {
             get { return reConsole; }
         }
 
+        /// <summary>
+        /// Program Editor Control
+        /// </summary>
         public RichEditControl ProgramEditor
         {
             get { return reProgram; }
         }
 
+        /// <summary>
+        /// Window constructor
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -36,12 +45,18 @@ namespace UVSim
             controller = new UVSimController(this);
         }
 
+        /// <summary>
+        /// Handling line formatting in Program Editor
+        /// </summary>
+        /// <param name="sender">Program editor</param>
+        /// <param name="e">Args</param>
         private void reProgram_Loaded(object sender, RoutedEventArgs e)
         {
             RichEditControl re = sender as RichEditControl;
             if (re == null)
                 return;
 
+            // Show line numbers
             re.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
             re.Views.SimpleView.AllowDisplayLineNumbers = true;
             re.Views.SimpleView.Padding = new System.Windows.Forms.Padding(80, 4, 0, 0);
@@ -50,14 +65,23 @@ namespace UVSim
             re.Document.Sections[0].LineNumbering.Start = 1;
             re.Document.Sections[0].LineNumbering.CountBy = 1;
             re.Document.Sections[0].LineNumbering.Distance = 0.1f;
+
+            // Set text color
             re.Document.DefaultCharacterProperties.ForeColor = System.Drawing.Color.Blue;
 
         }
 
+        /// <summary>
+        /// Checking for max lines
+        /// </summary>
+        /// <param name="sender">Program editor</param>
+        /// <param name="e">Args</param>
         private void reProgram_ContentChanged(object sender, EventArgs e)
         {
             string text = ((RichEditControl)sender).Text;
             string[] lines = text.Split('\n');
+
+            // Check that number of lines does't exceed the limit
             if (lines.Length > MAX_LINES)
             {
                 StringBuilder builder = new StringBuilder();
@@ -69,31 +93,49 @@ namespace UVSim
             }
         }
 
+        /// <summary>
+        /// Set console line formatting
+        /// </summary>
+        /// <param name="sender">Console</param>
+        /// <param name="e">Args</param>
         private void reConsole_Loaded(object sender, RoutedEventArgs e)
         {
             RichEditControl re = sender as RichEditControl;
             if (re == null)
                 return;
 
+            // Set font to monospace
             re.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
             re.Document.DefaultCharacterProperties.FontName = "PT Serif";
         }
 
+        /// <summary>
+        /// Execute button handler
+        /// </summary>
+        /// <param name="sender">Execute button</param>
+        /// <param name="e">Args</param>
         private async void btnExecute_Click(object sender, RoutedEventArgs e)
         {
+            // Start task in another thread
             await Task.Run(() => StartExecution());
         }
 
+        /// <summary>
+        /// Start execution of a BasicML program
+        /// </summary>
         private void StartExecution()
         {
+            // Block controls
             this.Dispatcher.Invoke(() =>
             {
                 reProgram.ReadOnly = true;
                 btnExecute.IsEnabled = false;
             });
 
+            // Execute
             controller.StartExecution();
 
+            // Release control
             this.Dispatcher.Invoke(() =>
             {
                 btnExecute.IsEnabled = true;
@@ -101,6 +143,11 @@ namespace UVSim
             });
         }
 
+        /// <summary>
+        /// Capture keyboard key pressings in console window
+        /// </summary>
+        /// <param name="sender">Console</param>
+        /// <param name="e">Args</param>
         private void reConsole_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (controller.ResetEvent != null)
@@ -158,12 +205,35 @@ namespace UVSim
             }
         }
 
+        /// <summary>
+        /// "Load from file" button handler
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="e">Args</param>
         private void btnLoad_Click(object sender, RoutedEventArgs e)
         {
+            // Get file name from dialog window
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
             {
+                // Load content from file
                 controller.LoadFromFile(openFileDialog.FileName);
+            }
+        }
+
+        /// <summary>
+        /// "Save to gile" button handler
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="e">Args</param>
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            // Get file name from dialog window
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                // Save content to file
+                controller.SaveToFile(saveFileDialog.FileName);
             }
         }
     }
