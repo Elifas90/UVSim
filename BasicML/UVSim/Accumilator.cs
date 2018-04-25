@@ -13,9 +13,23 @@ namespace UVSim
 
     public class Accumilator
     {
+        public const int MIN_NUMBER = 0;
+        public const int MAX_NUMBER = 999999;
+
         private static Accumilator _instance;
 
-        public int Value { get; set; }
+        private int _value;
+
+        public int Value
+        {
+            get { return _value; }
+            set
+            {
+                if ((value < MIN_NUMBER) || (value > MAX_NUMBER))
+                    throw new ApplicationException("Overflow error: The value is beyond range.");
+                _value = value;
+            }
+        }
 
         public static Accumilator Instance
         {

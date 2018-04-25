@@ -27,301 +27,308 @@ namespace UVSim
         // A function to execute the instruction from the memory array.
         public void Execute()
         {
-            int opCode;
-
-            // Create executioners
-            BasicML directExecution = new BasicMLDirect(window, memory);
-            BasicML indirectExecution = new BasicMLIndirect(window, memory);
-            BasicMLMath directMath = new BasicMLMathDirect(window, memory);
-            BasicMLMath indirectMath = new BasicMLMathIndirect(window, memory);
-
-            // A loop to go over the memory until HALT is encountered.
-            while (true)
+            try
             {
-                // Get the opCode
-                opCode = memory[pc] / 100;
+                int opCode;
 
-                // Switch statment to execute the targeted instruction based on the opCode.
-                switch (opCode)
+                // Create executioners
+                BasicML directExecution = new BasicMLDirect(window, memory);
+                BasicML indirectExecution = new BasicMLIndirect(window, memory);
+                BasicMLMath directMath = new BasicMLMathDirect(window, memory);
+                BasicMLMath indirectMath = new BasicMLMathIndirect(window, memory);
+
+                // A loop to go over the memory until HALT is encountered.
+                while (true)
                 {
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Josh Cooley
+                    // Get the opCode
+                    opCode = memory[pc] / 100;
 
-                    // READ
-                    case 10:
+                    // Switch statment to execute the targeted instruction based on the opCode.
+                    switch (opCode)
+                    {
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Josh Cooley
 
-                        directExecution.Read(ref pc);
+                        // READ
+                        case 10:
 
-                        break;
+                            directExecution.Read(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Josh Cooley
+                            break;
 
-                    // WRITE
-                    case 11:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Josh Cooley
 
-                        directExecution.Write(ref pc);
+                        // WRITE
+                        case 11:
 
-                        break;
+                            directExecution.Write(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Josh Cooley
+                            break;
 
-                    // READ - INDIRECT
-                    case 12:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Josh Cooley
 
-                        indirectExecution.Read(ref pc);
+                        // READ - INDIRECT
+                        case 12:
 
-                        break;
+                            indirectExecution.Read(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Josh Cooley
+                            break;
 
-                    // WRITE - INDIRECT
-                    case 13:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Josh Cooley
 
-                        indirectExecution.Write(ref pc);
+                        // WRITE - INDIRECT
+                        case 13:
 
-                        break;
+                            indirectExecution.Write(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Josh Cooley
+                            break;
 
-                    // LOAD
-                    case 20:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Josh Cooley
 
-                        directExecution.Load(ref pc);
+                        // LOAD
+                        case 20:
 
-                        break;
+                            directExecution.Load(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Nikita Pestin
+                            break;
 
-                    // STORE
-                    case 21:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Nikita Pestin
 
-                        directExecution.Store(ref pc);
+                        // STORE
+                        case 21:
 
-                        break;
+                            directExecution.Store(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Nikita Pestin
+                            break;
 
-                    // LOAD - INDIRECT
-                    case 22:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Nikita Pestin
 
-                        indirectExecution.Load(ref pc);
+                        // LOAD - INDIRECT
+                        case 22:
 
-                        break;
+                            indirectExecution.Load(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Nikita Pestin
+                            break;
 
-                    // STORE - INDIRECT
-                    case 23:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Nikita Pestin
 
-                        indirectExecution.Load(ref pc);
+                        // STORE - INDIRECT
+                        case 23:
 
-                        break;
+                            indirectExecution.Load(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Nikita Pestin
+                            break;
 
-                    // ADD
-                    case 30:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Nikita Pestin
 
-                        directMath.Add(ref pc);
+                        // ADD
+                        case 30:
 
-                        break;
+                            directMath.Add(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Nikita Pestin
+                            break;
 
-                    // SUBTRACT
-                    case 31:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Nikita Pestin
 
-                        directMath.Subtract(ref pc);
+                        // SUBTRACT
+                        case 31:
 
-                        break;
+                            directMath.Subtract(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Caleb Hansen
+                            break;
 
-                    // DIVIDE
-                    case 32:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Caleb Hansen
 
-                        directMath.Divide(ref pc);
+                        // DIVIDE
+                        case 32:
 
-                        break;
+                            directMath.Divide(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Caleb Hansen
+                            break;
 
-                    // MULTIPLY
-                    case 33:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Caleb Hansen
 
-                        directMath.Multiply(ref pc);
+                        // MULTIPLY
+                        case 33:
 
-                        break;
+                            directMath.Multiply(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Nikita Pestin
+                            break;
 
-                    // ADD - INDIRECT
-                    case 34:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Nikita Pestin
 
-                        indirectMath.Add(ref pc);
+                        // ADD - INDIRECT
+                        case 34:
 
-                        break;
+                            indirectMath.Add(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Nikita Pestin
+                            break;
 
-                    // SUBTRACT - INDIRECT
-                    case 35:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Nikita Pestin
 
-                        indirectMath.Subtract(ref pc);
+                        // SUBTRACT - INDIRECT
+                        case 35:
 
-                        break;
+                            indirectMath.Subtract(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Nikita Pestin
+                            break;
 
-                    // DIVIDE - INDIRECT
-                    case 36:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Nikita Pestin
 
-                        indirectMath.Divide(ref pc);
+                        // DIVIDE - INDIRECT
+                        case 36:
 
-                        break;
+                            indirectMath.Divide(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Nikita Pestin
+                            break;
 
-                    // MULTIPLY - INDIRECT
-                    case 37:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Nikita Pestin
 
-                        indirectMath.Multiply(ref pc);
+                        // MULTIPLY - INDIRECT
+                        case 37:
 
-                        break;
+                            indirectMath.Multiply(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Caleb Hansen
+                            break;
 
-                    // BRANCH
-                    case 40:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Caleb Hansen
 
-                        directExecution.Branch(ref pc);
+                        // BRANCH
+                        case 40:
 
-                        break;
+                            directExecution.Branch(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Ali Alabdlmohsen
+                            break;
 
-                    // BRANCHNEG
-                    case 41:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Ali Alabdlmohsen
 
-                        directExecution.BranchNeg(ref pc);
+                        // BRANCHNEG
+                        case 41:
 
-                        break;
+                            directExecution.BranchNeg(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Ali Alabdlmohsen
+                            break;
 
-                    // BRANCHZERO
-                    case 42:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Ali Alabdlmohsen
 
-                        directExecution.BranchZero(ref pc);
+                        // BRANCHZERO
+                        case 42:
 
-                        break;
+                            directExecution.BranchZero(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Ali Alabdlmohsen
+                            break;
 
-                    // HALT
-                    case 43:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Ali Alabdlmohsen
 
-                        // End the execution.
-                        window.Console.WriteLine("---------------------------------------------");
-                        return;
+                        // HALT
+                        case 43:
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Caleb Hansen
+                            // End the execution.
+                            window.Console.WriteLine("---------------------------------------------");
+                            return;
 
-                    // BRANCH - Josh Cooley
-                    case 44:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Caleb Hansen
 
-                        indirectExecution.Branch(ref pc);
+                        // BRANCH - Josh Cooley
+                        case 44:
 
-                        break;
+                            indirectExecution.Branch(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Ali Alabdlmohsen
+                            break;
 
-                    // BRANCHNEG - INDIRECT
-                    case 45:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Ali Alabdlmohsen
 
-                        indirectExecution.BranchNeg(ref pc);
+                        // BRANCHNEG - INDIRECT
+                        case 45:
 
-                        break;
+                            indirectExecution.BranchNeg(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Ali Alabdlmohsen
+                            break;
 
-                    // BRANCHZERO - INDIRECT
-                    case 46:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Ali Alabdlmohsen
 
-                        indirectExecution.BranchZero(ref pc);
+                        // BRANCHZERO - INDIRECT
+                        case 46:
 
-                        break;
+                            indirectExecution.BranchZero(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Ali Alabdlmohsen
+                            break;
 
-                    // REMINDER
-                    case 50:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Ali Alabdlmohsen
 
-                        directMath.Reminder(ref pc);
+                        // REMINDER
+                        case 50:
 
-                        break;
+                            directMath.Reminder(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Ali Alabdlmohsen
+                            break;
 
-                    // EXPONENTIATION
-                    case 51:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Ali Alabdlmohsen
 
-                        directMath.Exponential(ref pc);
+                        // EXPONENTIATION
+                        case 51:
 
-                        break;
+                            directMath.Exponential(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Ali Alabdlmohsen
+                            break;
 
-                    // REMINDER - INDIRECT
-                    case 52:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Ali Alabdlmohsen
 
-                        indirectMath.Reminder(ref pc);
+                        // REMINDER - INDIRECT
+                        case 52:
 
-                        break;
+                            indirectMath.Reminder(ref pc);
 
-                    //-----------------------------------------------------------------------------------------------------------------------
-                    // Coded by: Ali Alabdlmohsen
+                            break;
 
-                    // EXPONENTIATION - INDIRECT
-                    case 53:
+                        //-----------------------------------------------------------------------------------------------------------------------
+                        // Coded by: Ali Alabdlmohsen
 
-                        indirectMath.Exponential(ref pc);
+                        // EXPONENTIATION - INDIRECT
+                        case 53:
 
-                        break;
+                            indirectMath.Exponential(ref pc);
 
-                    // Defult.
-                    default:
+                            break;
 
-                        // Increment the program counter.
-                        pc++;
+                        // Defult.
+                        default:
 
-                        break;
+                            // Increment the program counter.
+                            pc++;
+
+                            break;
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                window.Error(ex.Message);
             }
         }
 

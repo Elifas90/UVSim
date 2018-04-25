@@ -1,4 +1,0 @@
-﻿  vm.cpp
-c:\users\userx\documents\visual studio 2017\projects\cs2420\m2\basicml\basicml\vm.cpp(462): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  BasicML.vcxproj -> C:\Users\UserX\Documents\Visual Studio 2017\Projects\CS2420\M2\BasicML\Debug\BasicML.exe
-  BasicML.vcxproj -> C:\Users\UserX\Documents\Visual Studio 2017\Projects\CS2420\M2\BasicML\Debug\BasicML.pdb (Partial PDB)

@@ -39,15 +39,29 @@ namespace UVSim
         public static void Error(this IUVSimController window, int lineNumber, string error)
         {
             RichEditControl console = window.Console;
-            //RichEditControl programEdit = window.ProgramEditor;
             console.Dispatcher.Invoke(() =>
             {
                 console.BeginUpdate();
                 var paragraph = console.Document.Paragraphs.Append();
                 console.Document.InsertText(paragraph.Range.Start, $"Error in line {lineNumber + 1}: {error}.\r\n");
-                var charProperties = console.Document.BeginUpdateCharacters(paragraph.Range);
-                charProperties.ForeColor = System.Drawing.Color.Red;
-                console.Document.EndUpdateCharacters(charProperties);
+                //var charProperties = console.Document.BeginUpdateCharacters(paragraph.Range);
+                //charProperties.ForeColor = System.Drawing.Color.Red;
+                //console.Document.EndUpdateCharacters(charProperties);
+                console.EndUpdate();
+            });
+        }
+
+        public static void Error(this IUVSimController window, string error)
+        {
+            RichEditControl console = window.Console;
+            console.Dispatcher.Invoke(() =>
+            {
+                console.BeginUpdate();
+                var paragraph = console.Document.Paragraphs.Append();
+                console.Document.InsertText(paragraph.Range.Start, $"{error}.\r\n");
+                //var charProperties = console.Document.BeginUpdateCharacters(paragraph.Range);
+                //charProperties.ForeColor = System.Drawing.Color.Red;
+                //console.Document.EndUpdateCharacters(charProperties);
                 console.EndUpdate();
             });
         }
@@ -65,6 +79,8 @@ namespace UVSim
             window.ResetEvent = null;
             int result = 0;
             int.TryParse(window.Input, out result);
+            if ((result < Accumilator.MIN_NUMBER) || (result > Accumilator.MAX_NUMBER))
+                throw new ApplicationException("Overflow error: The value is beyond range.");
             return result;
         }
     }

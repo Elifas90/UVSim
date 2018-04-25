@@ -80,6 +80,7 @@ namespace UVSim
         public void LoadFromFile(string fileName)
         {
             // Load text from file into text editor
+            ProgramEditor.Document.Delete(ProgramEditor.Document.Range);
             ProgramEditor.Document.AppendText(File.ReadAllText(fileName));
         }
 
