@@ -22,9 +22,8 @@ namespace UVSim
 
         public override void Branch(ref int pc)
         {
-            // Increment the program counter to get to the operand.
-            pc++;
-            int operand = memory[pc];
+            // Get operand from word
+            int operand = ComposeWORD(ref pc);
 
             // Branch to a location in memory based on the operand.
             pc = operand;
@@ -32,9 +31,8 @@ namespace UVSim
 
         public override void BranchNeg(ref int pc)
         {
-            // Increment the program counter to get to the operand.
-            pc++;
-            int operand = memory[pc];
+            // Get operand from word
+            int operand = ComposeWORD(ref pc);
 
             // If the integer in the Accumilator.Instance.Value is negative, branch to a location in memory based on the operand.
             if (Accumilator.Instance.Value < 0) pc = operand;
@@ -45,9 +43,8 @@ namespace UVSim
 
         public override void BranchZero(ref int pc)
         {
-            // Increment the program counter to get to the operand.
-            pc++;
-            int operand = memory[pc];
+            // Get operand from word
+            int operand = ComposeWORD(ref pc);
 
             // If the integer in the Accumilator.Instance.Value is zero, branch to a location in memory based on the operand.
             if (Accumilator.Instance.Value == 0) pc = operand;
@@ -58,12 +55,12 @@ namespace UVSim
 
         public override void Load(ref int pc)
         {
-            // Increment the program counter to get to the operand.
-            pc++;
-            int operand = memory[pc];
+            // Get operand from dword
+            int operand = ComposeDWORD(ref pc);
 
+            int value = ComposeDWORD(ref operand);
             // Read an integer from a memory location based on the operand, and load it in the Accumilator.Instance.Value.
-            Accumilator.Instance.Value = memory[operand];
+            Accumilator.Instance.Value = value;
 
             // Increment the program counter.
             pc++;
@@ -71,13 +68,13 @@ namespace UVSim
 
         public override void Read(ref int pc)
         {
-            // Increment the program counter to get to the operand.
-            pc++;
-            int operand = memory[pc];
+            // Get operand from word
+            int operand = ComposeWORD(ref pc);
 
             // Read an integer from the keyboard, and store it in a memory location based on the operand.
             window.Console.Write("Enter an integer: ");
-            memory[operand] = window.Read();
+            int value = window.Read();
+            SaveDWORD(operand, value);
 
             // Increment the program counter.
             pc++;
@@ -85,12 +82,11 @@ namespace UVSim
 
         public override void Store(ref int pc)
         {
-            // Increment the program counter to get to the operand.
-            pc++;
-            int operand = memory[pc];
+            // Get operand from word
+            int operand = ComposeWORD(ref pc);
 
             // Read an integer from the Accumilator.Instance.Value, and store it in a memory location based on the operand.
-            memory[operand] = Accumilator.Instance.Value;
+            SaveDWORD(operand, Accumilator.Instance.Value);
 
             // Increment the program counter.
             pc++;
@@ -98,12 +94,12 @@ namespace UVSim
 
         public override void Write(ref int pc)
         {
-            // Increment the program counter to get to the operand.
-            pc++;
-            int operand = memory[pc];
+            // Get operand from word
+            int operand = ComposeWORD(ref pc);
 
             // Read an integer from a memory location based on the operand, and print it.
-            window.Console.WriteLine(memory[operand].ToString());
+            int value = ComposeDWORD(ref operand);
+            window.Console.WriteLine(value.ToString());
 
             // Increment the program counter.
             pc++;

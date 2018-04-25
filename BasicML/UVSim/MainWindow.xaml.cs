@@ -62,7 +62,7 @@ namespace UVSim
             re.Views.SimpleView.Padding = new System.Windows.Forms.Padding(80, 4, 0, 0);
 
             re.Document.Sections[0].LineNumbering.RestartType = DevExpress.XtraRichEdit.API.Native.LineNumberingRestart.Continuous;
-            re.Document.Sections[0].LineNumbering.Start = 1;
+            re.Document.Sections[0].LineNumbering.Start = 0;
             re.Document.Sections[0].LineNumbering.CountBy = 1;
             re.Document.Sections[0].LineNumbering.Distance = 0.1f;
 

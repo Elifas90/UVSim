@@ -55,7 +55,8 @@ namespace UVSim
             int operand = memory[pc] % 100;
 
             // Read an integer from a memory location based on the operand, and load it in the Accumilator.Instance.Value.
-            Accumilator.Instance.Value = memory[operand];
+            int value = ComposeDWORD(ref operand);
+            Accumilator.Instance.Value = value;
 
             // Increment the program counter.
             pc++;
@@ -67,7 +68,8 @@ namespace UVSim
 
             // Read an integer from the keyboard, and store it in a memory location based on the operand.
             window.Console.Write("Enter an integer: ");
-            memory[operand] = window.Read();
+            int value = window.Read();
+            SaveDWORD(operand, value);
 
             // Increment the program counter.
             pc++;
@@ -78,7 +80,7 @@ namespace UVSim
             int operand = memory[pc] % 100;
 
             // Read an integer from the Accumilator.Instance.Value, and store it in a memory location based on the operand.
-            memory[operand] = Accumilator.Instance.Value;
+            SaveDWORD(operand, Accumilator.Instance.Value);
 
             // Increment the program counter.
             pc++;
@@ -89,7 +91,8 @@ namespace UVSim
             int operand = memory[pc] % 100;
 
             // Read an integer from a memory location based on the operand, and print it.
-            window.Console.WriteLine(memory[operand].ToString());
+            int value = ComposeDWORD(ref operand);
+            window.Console.WriteLine(value.ToString());
 
             // Increment the program counter.
             pc++;

@@ -27,6 +27,40 @@ namespace UVSim
             alu = new ALU();
         }
 
+        /// <summary>
+        /// Get Double Word from memory
+        /// </summary>
+        protected int ComposeDWORD(ref int pc)
+        {
+            // get hiword
+            int hiword = memory[pc];
+
+            // Increment the program counter to get to the 2-digit loword.
+            pc++;
+            int loword = memory[pc] / 100;
+
+            // Combine loword and hiword into 6-digit number
+            int dword = hiword * 100 + loword;
+
+            return dword;
+        }
+
+        /// <summary>
+        /// Save dpuble word value 
+        /// </summary>
+        /// <param name="location"></param>
+        /// <param name="value"></param>
+        protected void SaveDWORD(int location, int value)
+        {
+            // Decompose value into hiword and loword
+            int hiword = value / 100;
+            int loword = value % 100;
+
+            // Write them into respective locations
+            memory[location] = hiword;
+            memory[location + 1] = loword;
+        }
+
         public abstract void Add(ref int pc);
         public abstract void Subtract(ref int pc);
         public abstract void Divide(ref int pc);
