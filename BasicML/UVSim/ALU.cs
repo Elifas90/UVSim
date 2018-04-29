@@ -44,6 +44,10 @@ namespace UVSim
         // A function to divide two numbers using logic gates.
         public int Divide(int a, int b)
         {
+            // check for divide by zero
+            if (b == 0)
+                throw new DivideByZeroException();
+
             int count = 0;
 
             while (true)

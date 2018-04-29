@@ -78,7 +78,6 @@ C:\Users\UserX\Documents\Visual Studio 2017\Projects\CS2420\M2\BasicML\UVSim\bin
 C:\Users\UserX\Documents\Visual Studio 2017\Projects\CS2420\M2\BasicML\UVSim\bin\Debug\es\DevExpress.Xpf.Grid.v17.1.Core.resources.dll
 C:\Users\UserX\Documents\Visual Studio 2017\Projects\CS2420\M2\BasicML\UVSim\bin\Debug\ja\DevExpress.Xpf.Grid.v17.1.Core.resources.dll
 C:\Users\UserX\Documents\Visual Studio 2017\Projects\CS2420\M2\BasicML\UVSim\bin\Debug\ru\DevExpress.Xpf.Grid.v17.1.Core.resources.dll
-C:\Users\UserX\Documents\Visual Studio 2017\Projects\CS2420\M2\BasicML\UVSim\obj\Debug\UVSim.csprojResolveAssemblyReference.cache
 C:\Users\UserX\Documents\Visual Studio 2017\Projects\CS2420\M2\BasicML\UVSim\obj\Debug\MainWindow.g.cs
 C:\Users\UserX\Documents\Visual Studio 2017\Projects\CS2420\M2\BasicML\UVSim\obj\Debug\App.g.cs
 C:\Users\UserX\Documents\Visual Studio 2017\Projects\CS2420\M2\BasicML\UVSim\obj\Debug\UVSim_MarkupCompile.cache

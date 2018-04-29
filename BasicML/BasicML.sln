@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UVSim", "UVSim\UVSim.csproj", "{F2C9A9F8-BBF1-4C43-9A0D-BD937867F561}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UVSimTest", "UVSimTest\UVSimTest.csproj", "{925C7059-B374-45F6-82A3-BEC62C30A464}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,18 @@ Global
 		{F2C9A9F8-BBF1-4C43-9A0D-BD937867F561}.Release|x64.Build.0 = Release|Any CPU
 		{F2C9A9F8-BBF1-4C43-9A0D-BD937867F561}.Release|x86.ActiveCfg = Release|Any CPU
 		{F2C9A9F8-BBF1-4C43-9A0D-BD937867F561}.Release|x86.Build.0 = Release|Any CPU
+		{925C7059-B374-45F6-82A3-BEC62C30A464}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{925C7059-B374-45F6-82A3-BEC62C30A464}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{925C7059-B374-45F6-82A3-BEC62C30A464}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{925C7059-B374-45F6-82A3-BEC62C30A464}.Debug|x64.Build.0 = Debug|Any CPU
+		{925C7059-B374-45F6-82A3-BEC62C30A464}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{925C7059-B374-45F6-82A3-BEC62C30A464}.Debug|x86.Build.0 = Debug|Any CPU
+		{925C7059-B374-45F6-82A3-BEC62C30A464}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{925C7059-B374-45F6-82A3-BEC62C30A464}.Release|Any CPU.Build.0 = Release|Any CPU
+		{925C7059-B374-45F6-82A3-BEC62C30A464}.Release|x64.ActiveCfg = Release|Any CPU
+		{925C7059-B374-45F6-82A3-BEC62C30A464}.Release|x64.Build.0 = Release|Any CPU
+		{925C7059-B374-45F6-82A3-BEC62C30A464}.Release|x86.ActiveCfg = Release|Any CPU
+		{925C7059-B374-45F6-82A3-BEC62C30A464}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
