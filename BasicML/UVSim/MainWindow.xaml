@@ -28,6 +28,7 @@
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="2">
             <dx:SimpleButton x:Name="btnExecute" Margin="10,5,3,5" Click="btnExecute_Click">Execute</dx:SimpleButton>
             <dx:SimpleButton x:Name="btnLoad" Margin="3,5,3,5" Click="btnLoad_Click">Load from file</dx:SimpleButton>
+            <dx:SimpleButton x:Name="btnLoadMultiple" Margin="3,5,3,5" Click="btnLoadMultiple_Click">Load Multiple files</dx:SimpleButton>
             <dx:SimpleButton x:Name="btnSave" Margin="3,5,3,5" Click="btnSave_Click">Save to file</dx:SimpleButton>
         </StackPanel>
     </Grid>

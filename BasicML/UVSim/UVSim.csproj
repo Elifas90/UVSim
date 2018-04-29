@@ -73,6 +73,7 @@
     <Compile Include="BasicMLMathIndirect.cs" />
     <Compile Include="IUVSimController.cs" />
     <Compile Include="MemoryManager.cs" />
+    <Compile Include="Thread.cs" />
     <Compile Include="UVSimController.cs" />
     <Compile Include="VirtualMachine.cs" />
     <Page Include="MainWindow.xaml">

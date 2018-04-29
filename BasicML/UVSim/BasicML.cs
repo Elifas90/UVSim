@@ -30,7 +30,7 @@ namespace UVSim
         /// <summary>
         /// Get Double Word from memory
         /// </summary>
-        protected int ComposeDWORD(ref int pc)
+        public int ComposeDWORD(ref int pc)
         {
             // get hiword.
             int hiword = memory[pc];
@@ -50,7 +50,7 @@ namespace UVSim
         /// </summary>
         /// <param name="location"></param>
         /// <param name="value"></param>
-        protected void SaveDWORD(int location, int value)
+        public void SaveDWORD(int location, int value)
         {
             // Decompose value into hiword and loword
             int hiword = value / 100;
@@ -66,7 +66,7 @@ namespace UVSim
         /// </summary>
         /// <param name="pc"></param>
         /// <returns></returns>
-        protected int ComposeWORD(ref int pc)
+        public int ComposeWORD(ref int pc)
         {
             // Increment th program counter to get operand
             pc++;

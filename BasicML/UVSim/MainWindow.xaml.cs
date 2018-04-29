@@ -222,7 +222,24 @@ namespace UVSim
         }
 
         /// <summary>
-        /// "Save to gile" button handler
+        /// "Load Multiple Programs" button handler
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="e">Args</param>
+        private void btnLoadMultiple_Click(object sender, RoutedEventArgs e)
+        {
+            // Get file names from dialog window
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Multiselect = true;
+            if (openFileDialog.ShowDialog() == true)
+            {
+                // Load contents from file
+                controller.LoadMultiple(openFileDialog.FileNames);
+            }
+        }
+
+        /// <summary>
+        /// "Save to file" button handler
         /// </summary>
         /// <param name="sender">Button</param>
         /// <param name="e">Args</param>

@@ -41,9 +41,26 @@ namespace UVSim
             window.Console.WriteLine("---------------------------------------------");
         }
 
+        /// <summary>
+        /// Returns memory
+        /// </summary>
+        /// <returns>Memory manager</returns>
         public MemoryManager GetMemory()
         {
             return memory;
+        }
+
+        /// <summary>
+        /// Returns number of programs loaded into memory
+        /// </summary>
+        /// <returns>Number of Programs</returns>
+        public int GetProgramCount()
+        {
+            int lineNumber = MemoryManager.MEMORY_SIZE-1;
+            while ((lineNumber > 0) && (memory[lineNumber] == 0))
+                lineNumber--;
+
+            return (int)Math.Ceiling((double)lineNumber / Thread.THREAD_OFFSET);
         }
     }
 }

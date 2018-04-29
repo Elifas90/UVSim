@@ -13,7 +13,7 @@ namespace UVSim
 
     public class Accumilator
     {
-        public const int MIN_NUMBER = 0;
+        public const int MIN_NUMBER = -999999;
         public const int MAX_NUMBER = 999999;
 
         private static Accumilator _instance;

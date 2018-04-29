@@ -50,6 +50,12 @@ namespace UVSim
         void LoadFromFile(string fileName);
 
         /// <summary>
+        /// Load multiple programs
+        /// </summary>
+        /// <param name="fileNames">File names</param>
+        void LoadMultiple(string[] fileNames);
+
+        /// <summary>
         /// Save program to file
         /// </summary>
         /// <param name="fileName">File name</param>
