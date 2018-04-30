@@ -56,7 +56,7 @@ namespace UVSim
         public override void Load(ref int pc)
         {
             // Get operand from dword
-            int operand = ComposeDWORD(ref pc);
+            int operand = ComposeWORD(ref pc);
 
             int value = ComposeDWORD(ref operand);
             // Read an integer from a memory location based on the operand, and load it in the Accumilator.Instance.Value.

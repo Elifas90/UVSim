@@ -44,6 +44,12 @@ namespace UVSim
         void StartExecution();
 
         /// <summary>
+        /// Start compilation of BasicML program
+        /// </summary>
+        /// <param name="fileName">File name</param>
+        void StartCompilation(string fileName);
+
+        /// <summary>
         /// Load program from file
         /// </summary>
         /// <param name="fileName">File name</param>

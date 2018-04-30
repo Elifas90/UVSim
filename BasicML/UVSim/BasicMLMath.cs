@@ -61,6 +61,19 @@ namespace UVSim
             memory[location + 1] = loword;
         }
 
+        /// <summary>
+        /// Get Word from memory
+        /// </summary>
+        /// <param name="pc"></param>
+        /// <returns></returns>
+        public int ComposeWORD(ref int pc)
+        {
+            // Increment th program counter to get operand
+            pc++;
+
+            return memory[pc];
+        }
+
         public abstract void Add(ref int pc);
         public abstract void Subtract(ref int pc);
         public abstract void Divide(ref int pc);

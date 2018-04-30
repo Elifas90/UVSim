@@ -144,6 +144,47 @@ namespace UVSim
         }
 
         /// <summary>
+        /// Start compilation of a BasicML program
+        /// </summary>
+        /// <param name="fileName">File name</param>
+        private void StartCompilation(string fileName)
+        {
+            // Block controls
+            this.Dispatcher.Invoke(() =>
+            {
+                reProgram.ReadOnly = true;
+                btnExecute.IsEnabled = false;
+            });
+
+            // Compile
+            controller.StartCompilation(fileName);
+
+            // Release control
+            this.Dispatcher.Invoke(() =>
+            {
+                btnExecute.IsEnabled = true;
+                reProgram.ReadOnly = false;
+            });
+        }
+
+        /// <summary>
+        /// "Compile" button handler
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="e">Args</param>
+        private async void btnCompile_Click(object sender, RoutedEventArgs e)
+        {
+            // Get file name from dialogue window
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "C# source file (*.cs)|*.cs";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                // Start compilation task in another thread
+                await Task.Run(() => StartCompilation(saveFileDialog.FileName));
+            }
+        }
+
+        /// <summary>
         /// Capture keyboard key pressings in console window
         /// </summary>
         /// <param name="sender">Console</param>

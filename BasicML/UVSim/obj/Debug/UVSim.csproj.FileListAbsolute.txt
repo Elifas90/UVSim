@@ -88,3 +88,9 @@ C:\Users\UserX\Documents\Visual Studio 2017\Projects\CS2420\M2\BasicML\UVSim\obj
 C:\Users\UserX\Documents\Visual Studio 2017\Projects\CS2420\M2\BasicML\UVSim\obj\Debug\UVSim.csproj.GenerateResource.Cache
 C:\Users\UserX\Documents\Visual Studio 2017\Projects\CS2420\M2\BasicML\UVSim\obj\Debug\UVSim.exe
 C:\Users\UserX\Documents\Visual Studio 2017\Projects\CS2420\M2\BasicML\UVSim\obj\Debug\UVSim.pdb
+C:\Users\UserX\Documents\Visual Studio 2017\Projects\CS2420\M2\BasicML\UVSim\obj\Debug\UVSim.csprojResolveAssemblyReference.cache
+C:\Users\UserX\Documents\Visual Studio 2017\Projects\CS2420\M2\BasicML\UVSim\bin\Debug\TestCases\test1.cs
+C:\Users\UserX\Documents\Visual Studio 2017\Projects\CS2420\M2\BasicML\UVSim\bin\Debug\TestCases\test2.cs
+C:\Users\UserX\Documents\Visual Studio 2017\Projects\CS2420\M2\BasicML\UVSim\bin\Debug\TestCases\test.txt
+C:\Users\UserX\Documents\Visual Studio 2017\Projects\CS2420\M2\BasicML\UVSim\bin\Debug\TestCases\test2.txt
+C:\Users\UserX\Documents\Visual Studio 2017\Projects\CS2420\M2\BasicML\UVSim\obj\Debug\UVSim_Content.g.cs

@@ -71,8 +71,15 @@
     <Compile Include="BasicMLMathDirect.cs" />
     <Compile Include="BasicMLIndirect.cs" />
     <Compile Include="BasicMLMathIndirect.cs" />
+    <Compile Include="Compilator.cs" />
     <Compile Include="IUVSimController.cs" />
     <Compile Include="MemoryManager.cs" />
+    <Content Include="TestCases\test1.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestCases\test2.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Compile Include="Thread.cs" />
     <Compile Include="UVSimController.cs" />
     <Compile Include="VirtualMachine.cs" />
@@ -117,6 +124,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestCases\test.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestCases\test2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

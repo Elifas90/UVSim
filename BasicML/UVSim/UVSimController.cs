@@ -74,6 +74,21 @@ namespace UVSim
         }
 
         /// <summary>
+        /// Compilation of BasicML Program
+        /// </summary>
+        /// <param name="fileName">File name</param>
+        public void StartCompilation(string fileName)
+        {
+            MemoryManager mm = new MemoryManager();
+            Assembler prototype = new Assembler(this, mm);
+            prototype.PrintIntroduction();
+            prototype.ReadInstructions(ProgramEditor.Text.Split('\n'));
+            Compilator comp = new Compilator(prototype.GetMemory(), this);
+            comp.Compile();
+            comp.WriteToFile(fileName);
+        }
+
+        /// <summary>
         /// Load program from file
         /// </summary>
         /// <param name="fileName">File name</param>
